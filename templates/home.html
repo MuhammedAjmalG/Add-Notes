@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="POST">
+        <input type="text" name="note" placeholder="Enter a note">
+        <button value="add" name="submit_action">Add Note</button>
+    </form>
+    <hr>
+    {% if session['notes'] %}
+        <form action="" method="POST">
+            <h4>My notes:</h4>
+            <ul>
+        {% for note in  session['notes'] %} 
+            <li><label><input type="checkbox" name="del_notes" value="{{note}}">{{note}}</label></li>
+        {% endfor %}
+        </ul>
+        <button class="button_del" value="remove" name="submit_action">Remove selected</button>
+        </form>
+    {% endif %}
+</body>
+</html>
